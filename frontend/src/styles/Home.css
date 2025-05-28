@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  z-index: 1000;
+  height: 80px;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+/* Logo styles */
+.logo-button {
+  height: 48px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 100px;
+}
+.logo-button:hover {
+  transform: scale(1.05);
+}
+.nav-links {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0%;
+  margin: 0;
+}
+.nav-links {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.nav-button {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #0f420f;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 4px 8px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.nav-button:hover {
+  color: #007bff;
+  
+.nav-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 120px;
+}
+  transform: scale(1.12);
+}
+
+/* GitHub Button */
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+.action-btn {
+  padding: 8px 22px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.action-btn.black {
+  background: #0f420f;
+  color: #fff;
+}
+
+.action-btn.black:hover {
+  background: #333;
+}

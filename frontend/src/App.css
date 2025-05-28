@@ -1,42 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  background: #ffffff;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #181818;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* In index.css or App.css */
+.ocean-bg {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to bottom, #29b1d6 0%, #005377 100%);
+  /* or your ocean image: */
+  /* background: url('/path/to/ocean.jpg') no-repeat center center fixed; */
+  background-size: cover;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+@keyframes swimRight {
+  0% { left: -80px; transform: scaleX(1) translateY(0) rotate(-2deg);}
+  10% { transform: scaleX(1) translateY(-10px) rotate(2deg);}
+  20% { transform: scaleX(1) translateY(0) rotate(-2deg);}
+  30% { transform: scaleX(1) translateY(10px) rotate(2deg);}
+  40% { transform: scaleX(1) translateY(0) rotate(-2deg);}
+  50% { transform: scaleX(1) translateY(-10px) rotate(2deg);}
+  60% { transform: scaleX(1) translateY(0) rotate(-2deg);}
+  70% { transform: scaleX(1) translateY(10px) rotate(2deg);}
+  80% { transform: scaleX(1) translateY(0) rotate(-2deg);}
+  100% { left: 100vw; transform: scaleX(1) translateY(0) rotate(-2deg);}
 }
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+@keyframes swimLeft {
+  0% { left: 100vw; transform: scaleX(-1) translateY(0) rotate(-2deg);}
+  10% { transform: scaleX(-1) translateY(-10px) rotate(2deg);}
+  20% { transform: scaleX(-1) translateY(0) rotate(-2deg);}
+  30% { transform: scaleX(-1) translateY(10px) rotate(2deg);}
+  40% { transform: scaleX(-1) translateY(0) rotate(-2deg);}
+  50% { transform: scaleX(-1) translateY(-10px) rotate(2deg);}
+  60% { transform: scaleX(-1) translateY(0) rotate(-2deg);}
+  70% { transform: scaleX(-1) translateY(10px) rotate(2deg);}
+  80% { transform: scaleX(-1) translateY(0) rotate(-2deg);}
+  100% { left: -80px; transform: scaleX(-1) translateY(0) rotate(-2deg);}
 }
