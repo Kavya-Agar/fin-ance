@@ -57,3 +57,24 @@ body {
   80% { transform: scaleX(-1) translateY(0) rotate(-2deg);}
   100% { left: -80px; transform: scaleX(-1) translateY(0) rotate(-2deg);}
 }
+
+@keyframes swimRight {
+  0% { left: -80px; }
+  100% { left: 100vw; }
+}
+@keyframes swimLeft {
+  0% { left: 100vw; }
+  100% { left: -80px; }
+}
+@keyframes tailWag {
+  0%, 100% { transform: rotate(-20deg); }
+  50% { transform: rotate(20deg); }
+}
+@keyframes seaweedSway {
+  0%, 100% { transform: rotate(-3deg) scaleY(1); }
+  50% { transform: rotate(3deg) scaleY(1.05); }
+}
+@keyframes chestLid {
+  0%, 100% { transform: rotateX(0deg);}
+  50% { transform: rotateX(25deg);}
+}
