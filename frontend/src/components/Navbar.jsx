@@ -57,7 +57,7 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
             {/* Sign Up button */}
             <a
               href="/signup"
-              className="ml-2 px-4 py-2 rounded-lg bg-white text-[#0faaf0] font-bold shadow hover:bg-blue-50 transition"
+              className="ml-2 px-4 py-2 rounded-full bg-white text-[#0faaf0] font-thin shadow font-pixel hover:bg-blue-50 transition"
             >
               Sign Up
             </a>
@@ -89,7 +89,7 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
                 ))}
                 <a
                 href="/signup"
-                className="block mt-2 px-4 py-2 rounded-lg bg-white text-[#0faaf0] font-bold shadow hover:bg-blue-50 transition"
+                className="block mt-2 px-4 py-2 rounded-full bg-white text-[#0faaf0] font-bold shadow font-pixel hover:bg-blue-50 transition"
                 >
                 Sign Up
                 </a>

@@ -230,7 +230,7 @@ export default function Home({ darkMode }) {
       </h1>
       {/* Subheading */}
       <p className="font-pixel text-base sm:text-lg text-blue-100 text-center mb-10 max-w-xl drop-shadow z-30">
-        Dive into FishFinance and swim your way to financial freedom!
+        Dive into FIN-ance and swim your way to financial freedom!
       </p>
       {/* Get Started Button */}
       <Link

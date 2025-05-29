@@ -62,7 +62,7 @@ function PixelStars({ darkMode }) {
   );
 }
 
-export default function Signup({ darkMode }) {
+export default function Login({ darkMode }) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -86,7 +86,7 @@ export default function Signup({ darkMode }) {
         <div className="flex items-center mb-6">
           <span className="mr-3"><PixelFish /></span>
           <div className="bg-blue-100 dark:bg-blue-900 border-2 border-blue-300 dark:border-blue-700 rounded-lg px-4 py-2 text-xs text-blue-900 dark:text-blue-100" style={{ fontFamily: "inherit" }}>
-            Create an account to start swimming!
+            Log in to resume swimming!
           </div>
         </div>
 
@@ -119,17 +119,18 @@ export default function Signup({ darkMode }) {
             type="submit"
             className="bg-[#0faaf0] text-white font-pixel rounded-lg py-2 mt-2 shadow hover:bg-blue-500 transition text-lg"
           >
-            Sign up for free
+            Log in!
           </button>
         </form>
 
         {/* Terms and login prompt */}
-        <div className="text-sm text-blue-600 dark:text-blue-200 mt-3 text-center font-sans">
-          By signing up, I agree to FIN-ance's <Link to="/terms" className="underline">Terms</Link>.
+        <div className="text-md text-blue-700 dark:text-blue-300 mt-2 text-center font-sans">
+          Need an account?{" "}
+          <Link to="/signup" className="underline hover:text-[#0faaf0]">Sign Up</Link>
         </div>
         <div className="text-md text-blue-700 dark:text-blue-300 mt-2 text-center font-sans">
-          Already have an account?{" "}
-          <Link to="/login" className="underline hover:text-[#0faaf0]">Log in</Link>
+            Forgot your password?{" "}
+            <Link to="/forgot" className="underline hover:text-[#0faaf0]">Reset it</Link>
         </div>
       </div>
     </div>

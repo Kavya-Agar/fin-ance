@@ -62,7 +62,7 @@ function PixelStars({ darkMode }) {
   );
 }
 
-export default function Signup({ darkMode }) {
+export default function Forgot({ darkMode }) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -86,7 +86,7 @@ export default function Signup({ darkMode }) {
         <div className="flex items-center mb-6">
           <span className="mr-3"><PixelFish /></span>
           <div className="bg-blue-100 dark:bg-blue-900 border-2 border-blue-300 dark:border-blue-700 rounded-lg px-4 py-2 text-xs text-blue-900 dark:text-blue-100" style={{ fontFamily: "inherit" }}>
-            Create an account to start swimming!
+            Enter the email associated with your account to reset your password.
           </div>
         </div>
 
@@ -98,39 +98,15 @@ export default function Signup({ darkMode }) {
             placeholder="Email"
             className="rounded-lg border-2 border-blue-200 dark:border-blue-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 font-sans bg-blue-50 dark:bg-blue-950 text-blue-900 dark:text-blue-100"
           />
-          <div className="relative">
-            <input
-              type={showPassword ? "text" : "password"}
-              required
-              placeholder="Password"
-              className="rounded-lg border-2 border-blue-200 dark:border-blue-800 px-3 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400 font-sans bg-blue-50 dark:bg-blue-950 text-blue-900 dark:text-blue-100 w-full"
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword((s) => !s)}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-1"
-              tabIndex={-1}
-              aria-label={showPassword ? "Hide password" : "Show password"}
-            >
-              <EyeIcon show={showPassword} />
-            </button>
-          </div>
-          <button
-            type="submit"
-            className="bg-[#0faaf0] text-white font-pixel rounded-lg py-2 mt-2 shadow hover:bg-blue-500 transition text-lg"
-          >
-            Sign up for free
-          </button>
         </form>
-
-        {/* Terms and login prompt */}
-        <div className="text-sm text-blue-600 dark:text-blue-200 mt-3 text-center font-sans">
-          By signing up, I agree to FIN-ance's <Link to="/terms" className="underline">Terms</Link>.
-        </div>
-        <div className="text-md text-blue-700 dark:text-blue-300 mt-2 text-center font-sans">
-          Already have an account?{" "}
-          <Link to="/login" className="underline hover:text-[#0faaf0]">Log in</Link>
-        </div>
+        <a
+            href="https://www.google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full mt-6 bg-blue-500 hover:bg-blue-500/90 text-white font-bold py-2 px-4 transition-colors duration-300 rounded-lg text-center block"
+            >
+            Reset Password
+        </a>
       </div>
     </div>
   );
