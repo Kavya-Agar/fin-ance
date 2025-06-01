@@ -1,23 +1,30 @@
 import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css'
-import Navbar from './components/Navbar.jsx'
+import Navbar from './components/Navbar.jsx';
 import Home from './components/Home.jsx';
 import Signup from './components/Signup.jsx';
 import Login from './components/Login.jsx';
 import Forgot from './components/Forgot.jsx';
+import Dashboard from './components/dashboard/Dashboard.jsx';
 
 function AppContent() {
   const [darkMode, setDarkMode] = useState(false);
+  const location = useLocation();
 
   const toggleDarkMode = () => {
     setDarkMode((prev) => !prev);
     document.documentElement.classList.toggle('dark');
   };
 
+  const hideNavbar = location.pathname.startsWith("/dashboard");
+
   return (
     <>
-      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      {!hideNavbar && (
+        <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      )}
       <div className="ocean-bg pt-16">
         <Routes>
           <Route path="/" element={<Home darkMode={darkMode} />} />
@@ -26,11 +33,13 @@ function AppContent() {
           <Route path="/signup" element={<Signup darkMode={darkMode} />} />
           <Route path="/login" element={<Login darkMode={darkMode} />} />
           <Route path="/forgot" element={<Forgot darkMode={darkMode} />} />
+          <Route path="/dashboard/*" element={<Dashboard />} />
         </Routes>
       </div>
     </>
   );
 }
+
 function App() {
   return (
     <Router>
