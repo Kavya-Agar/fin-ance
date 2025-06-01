@@ -7,7 +7,8 @@ import Home from './components/Home.jsx';
 import Signup from './components/Signup.jsx';
 import Login from './components/Login.jsx';
 import Forgot from './components/Forgot.jsx';
-import Dashboard from './components/dashboard/Dashboard.jsx';
+import DashboardFull from './components/dashboard/Dashboard.jsx';
+import Page from './components/Page.jsx';
 
 function AppContent() {
   const [darkMode, setDarkMode] = useState(false);
@@ -18,7 +19,7 @@ function AppContent() {
     document.documentElement.classList.toggle('dark');
   };
 
-  const hideNavbar = location.pathname.startsWith("/dashboard");
+  const hideNavbar = location.pathname.startsWith("/page");
 
   return (
     <>
@@ -33,7 +34,8 @@ function AppContent() {
           <Route path="/signup" element={<Signup darkMode={darkMode} />} />
           <Route path="/login" element={<Login darkMode={darkMode} />} />
           <Route path="/forgot" element={<Forgot darkMode={darkMode} />} />
-          <Route path="/dashboard/*" element={<Dashboard />} />
+          <Route path="/dashboard/*" element={<DashboardFull />} />
+          <Route path="/page/*" element={<Page />} />
         </Routes>
       </div>
     </>
