@@ -16,7 +16,7 @@ function classNames(...classes) {
 
 export default function Navbar({ darkMode, toggleDarkMode }) {
   return (
-    <Disclosure as="nav" className="fixed top-0 left-0 w-full z-50 bg-[#4fc2f0] dark:bg-gray-900 transition">
+    <Disclosure as="nav" className="fixed top-0 left-0 w-full z-50 dark:bg-gray-900 transition">
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}

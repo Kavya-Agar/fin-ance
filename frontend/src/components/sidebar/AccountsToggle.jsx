@@ -12,10 +12,10 @@ export const AccountsToggle = () => {
                 />
                 <div className='text-start'>
                     <span className='text-sm font-semibold block'> 
-                        Tom is Loading
+                        Kavya Agar
                     </span>
                     <span className='text-xs block text-stone-50'>
-                        tom@hover.dev
+                        kavyaagar0@gmail.com
                     </span>
                 </div>
                 <FiChevronDown className="absolute right-2 top-1/2 translate-y-[calc(-50%+4px)] text-xs" />
