@@ -64,6 +64,35 @@ function PixelStars({ darkMode }) {
 
 export default function Login({ darkMode }) {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await fetch("http://localhost:8000/api/login/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username: email, password }), // <--- key line
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      localStorage.setItem("token", data.token);
+      alert("Login successful!");
+      // Optional: redirect to dashboard
+    } else {
+      alert(data.detail || data.error || "Login failed.");
+    }
+  } catch (error) {
+    alert("Something went wrong.");
+    console.error(error);
+  }
+};
+
 
   return (
     <div
@@ -91,11 +120,13 @@ export default function Login({ darkMode }) {
         </div>
 
         {/* Email/Password Form */}
-        <form className="w-full flex flex-col space-y-4 mt-2">
+        <form className="w-full flex flex-col space-y-4 mt-2" onSubmit={handleLogin}>
           <input
             type="email"
             required
             placeholder="Email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
             className="rounded-lg border-2 border-blue-200 dark:border-blue-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 font-sans bg-blue-50 dark:bg-blue-950 text-blue-900 dark:text-blue-100"
           />
           <div className="relative">
@@ -103,6 +134,8 @@ export default function Login({ darkMode }) {
               type={showPassword ? "text" : "password"}
               required
               placeholder="Password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
               className="rounded-lg border-2 border-blue-200 dark:border-blue-800 px-3 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400 font-sans bg-blue-50 dark:bg-blue-950 text-blue-900 dark:text-blue-100 w-full"
             />
             <button
@@ -129,8 +162,8 @@ export default function Login({ darkMode }) {
           <Link to="/signup" className="underline hover:text-[#0faaf0]">Sign Up</Link>
         </div>
         <div className="text-md text-blue-700 dark:text-blue-300 mt-2 text-center font-sans">
-            Forgot your password?{" "}
-            <Link to="/forgot" className="underline hover:text-[#0faaf0]">Reset it</Link>
+          Forgot your password?{" "}
+          <Link to="/forgot" className="underline hover:text-[#0faaf0]">Reset it</Link>
         </div>
       </div>
     </div>

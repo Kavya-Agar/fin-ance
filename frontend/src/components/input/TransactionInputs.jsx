@@ -41,7 +41,7 @@ export default function InputGrid() {
                 <h3 className="text-stone-500 mb-2 text-sm">Date</h3>
                 <input
                     type="date"
-                    className="w-full border bg-orange-100 border-gray-300 rounded px-3 py-2"
+                    className="w-full text-stone-400 border bg-orange-100 border-gray-300 rounded px-3 py-2"
                 />
             </div>
 

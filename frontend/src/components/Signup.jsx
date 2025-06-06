@@ -64,6 +64,43 @@ function PixelStars({ darkMode }) {
 
 export default function Signup({ darkMode }) {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    // Add validation here before sending the request
+    if (!email || !password) {
+      alert("Please enter both email and password.");
+      return; // Stop the function if validation fails
+    }
+
+    try {
+      const response = await fetch("http://localhost:8000/api/register/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // Ensure the keys here match what your backend expects
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Signup successful!");
+        // Optional: redirect to login
+      } else {
+        // The data.detail should contain the specific server-side error message
+        alert(data.error || data.detail || "Signup failed.");
+      }
+    } catch (error) {
+      alert("Something went wrong.");
+      console.error(error);
+    }
+  };
+
 
   return (
     <div
@@ -91,11 +128,13 @@ export default function Signup({ darkMode }) {
         </div>
 
         {/* Email/Password Form */}
-        <form className="w-full flex flex-col space-y-4 mt-2">
+        <form className="w-full flex flex-col space-y-4 mt-2" onSubmit={handleSignup}>
           <input
             type="email"
             required
             placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="rounded-lg border-2 border-blue-200 dark:border-blue-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 font-sans bg-blue-50 dark:bg-blue-950 text-blue-900 dark:text-blue-100"
           />
           <div className="relative">
@@ -103,6 +142,8 @@ export default function Signup({ darkMode }) {
               type={showPassword ? "text" : "password"}
               required
               placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="rounded-lg border-2 border-blue-200 dark:border-blue-800 px-3 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400 font-sans bg-blue-50 dark:bg-blue-950 text-blue-900 dark:text-blue-100 w-full"
             />
             <button
