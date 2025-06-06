@@ -1,6 +1,5 @@
-import React , { useState } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Routes, Route, useLocation, BrowserRouter } from 'react-router-dom';
 import './App.css'
 import Navbar from './components/Navbar.jsx';
 import Home from './components/Home.jsx';
@@ -10,6 +9,7 @@ import Forgot from './components/Forgot.jsx';
 import DashboardFull from './components/dashboard/Dashboard.jsx';
 import Page from './components/Page.jsx';
 import Details from './components/Details.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 function AppContent() {
   const [darkMode, setDarkMode] = useState(false);
@@ -35,9 +35,9 @@ function AppContent() {
           <Route path="/signup" element={<Signup darkMode={darkMode} />} />
           <Route path="/login" element={<Login darkMode={darkMode} />} />
           <Route path="/forgot" element={<Forgot darkMode={darkMode} />} />
-          <Route path="/dashboard/*" element={<DashboardFull />} />
-          <Route path="/page/" element={<Page />} />
-          <Route path="/page/fish" element={<Details />} />
+          <Route path="/dashboard/*" element={<ProtectedRoute> <DashboardFull /> </ProtectedRoute>} />
+          <Route path="/page/" element={<ProtectedRoute> <Page /> </ProtectedRoute>} />
+          <Route path="/page/fish" element={<ProtectedRoute> <Details /> </ProtectedRoute>} />
         </Routes>
       </div>
     </>
@@ -46,9 +46,9 @@ function AppContent() {
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <AppContent />
-    </Router>
+    </BrowserRouter>
   );
 }
 

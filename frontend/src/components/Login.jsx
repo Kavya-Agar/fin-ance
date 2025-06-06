@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Pixel fish SVG for the speech bubble
 function PixelFish() {
@@ -66,6 +66,7 @@ export default function Login({ darkMode }) {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
   e.preventDefault();
@@ -83,6 +84,7 @@ export default function Login({ darkMode }) {
     if (response.ok) {
       localStorage.setItem("token", data.token);
       alert("Login successful!");
+      navigate("/page");
       // Optional: redirect to dashboard
     } else {
       alert(data.detail || data.error || "Login failed.");
