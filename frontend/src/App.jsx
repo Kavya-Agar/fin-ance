@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React , { useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css'
@@ -9,6 +9,7 @@ import Login from './components/Login.jsx';
 import Forgot from './components/Forgot.jsx';
 import DashboardFull from './components/dashboard/Dashboard.jsx';
 import Page from './components/Page.jsx';
+import Details from './components/Details.jsx';
 
 function AppContent() {
   const [darkMode, setDarkMode] = useState(false);
@@ -35,7 +36,8 @@ function AppContent() {
           <Route path="/login" element={<Login darkMode={darkMode} />} />
           <Route path="/forgot" element={<Forgot darkMode={darkMode} />} />
           <Route path="/dashboard/*" element={<DashboardFull />} />
-          <Route path="/page/*" element={<Page />} />
+          <Route path="/page/" element={<Page />} />
+          <Route path="/page/fish" element={<Details />} />
         </Routes>
       </div>
     </>

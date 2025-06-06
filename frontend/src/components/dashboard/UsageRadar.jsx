@@ -13,37 +13,37 @@ import {
 
 const data = [
   {
-    feature: "Math",
+    feature: "Food",
     mobile: 120,
     desktop: 110,
     max: 150,
   },
   {
-    feature: "Chinese",
+    feature: "Travel",
     mobile: 98,
     desktop: 130,
     max: 150,
   },
   {
-    feature: "English",
+    feature: "Academics",
     mobile: 86,
     desktop: 130,
     max: 150,
   },
   {
-    feature: "Geography",
+    feature: "Rent",
     mobile: 99,
     desktop: 100,
     max: 150,
   },
   {
-    feature: "Physics",
+    feature: "Groceries",
     mobile: 85,
     desktop: 90,
     max: 150,
   },
   {
-    feature: "History",
+    feature: "Other",
     mobile: 65,
     desktop: 85,
     max: 150,
@@ -55,7 +55,7 @@ export const UsageRadar = () => {
     <div className="col-span-4 overflow-hidden rounded border border-stone-300">
       <div className="p-4">
         <h3 className="flex items-center gap-1.5 font-medium">
-          <FiEye /> Usage
+          <FiEye /> Spending Categories
         </h3>
       </div>
       
@@ -66,24 +66,16 @@ export const UsageRadar = () => {
           <PolarAngleAxis className="text-xs font-bold" dataKey="feature" />
           <PolarRadiusAxis angle={30} domain={[0, 150]} />
           <Radar
-            name="Mobile"
-            dataKey="mobile"
-            stroke="#18181b"
-            fill="#18181b"
-            fillOpacity={0.2}
-          />
-          <Radar
             name="Desktop"
             dataKey="desktop"
-            stroke="#5b21b6"
-            fill="#5b21b6"
-            fillOpacity={0.2}
+            stroke="#D7907B"
+            fill="#D7907B"
+            fillOpacity={0.3}
           />
           <Tooltip 
             wrapperClassName="text-xs rounded"
             labelClassName="text-xs text-stone-500"
             />
-          <Legend />
         </RadarChart>
       </ResponsiveContainer>
       </div>

@@ -17,7 +17,7 @@ export const RecentTransactions = () => {
 
                 <tbody>
                     <TableRow 
-                        cusId="#48149"
+                        cusId="Taco Bell"
                         sku="Pro 1 Month"
                         date="Aug 2nd"
                         price="$9.75"
@@ -61,10 +61,10 @@ const TableHead = () => {
     return (
         <thead>
             <tr className="text-sm font-normal text-stone-500">
-                <th className="text-start p-1.5">Customer ID</th>
-                <th className="text-start p-1.5">SKU</th>
+                <th className="text-start p-1.5">Description</th>
+                <th className="text-start p-1.5">Category</th>
                 <th className="text-start p-1.5">Date</th>
-                <th className="text-start p-1.5">Price</th>
+                <th className="text-start p-1.5">Amount</th>
                 <th className="w-8"></th>
             </tr>
         </thead>
@@ -73,15 +73,8 @@ const TableHead = () => {
 
 const TableRow = ({ cusId, sku, date, price, order }) => {
   return (
-    <tr className={order % 2 ? "bg-stone-100 text-sm" : "text-sm"}>
-      <td className="p-1.5">
-        <a
-          href="#"
-          className="text-violet-600 underline flex items-center gap-1"
-        >
-          {cusId} <FiArrowUpRight />
-        </a>
-      </td>
+    <tr className="text-sm" style={order % 2 ? { backgroundColor: '#faf2ef'} : {}}>
+      <td className="p-1.5">{cusId}</td>
       <td className="p-1.5">{sku}</td>
       <td className="p-1.5">{date}</td>
       <td className="p-1.5">{price}</td>

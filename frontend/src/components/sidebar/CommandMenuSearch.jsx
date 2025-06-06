@@ -6,7 +6,6 @@ import { FiEye, FiPlus } from "react-icons/fi";
 export const CommandMenu = ({ open, setOpen }) => {
 
     const [value, setValue] = useState("");
-  // Toggle the menu when ⌘K is pressed
   React.useEffect(() => {
     const down = (e) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {

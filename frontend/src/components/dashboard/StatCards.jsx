@@ -5,25 +5,25 @@ export const StatCards = () => {
     return (
         <>
             <Card 
-                title="Total Revenue"
+                title="Total Spendings"
                 value="$1,234,567"
-                pillText="+12%"
+                pillText="+12%" // implement the change
                 trend="up"
-                period="last month"            
+                period="this month"            
             />
             <Card 
-                title="Total Expenses"
+                title="Total Spendings"
                 value="$987,654"
                 pillText="-5%"
                 trend="down"
                 period="last month"
             />
             <Card 
-                title="Net Profit"
+                title="Total Spendings"
                 value="$246,913"
                 pillText="+7%"
                 trend="up"
-                period="last month"
+                period="so far"
             />
         </>
     );
