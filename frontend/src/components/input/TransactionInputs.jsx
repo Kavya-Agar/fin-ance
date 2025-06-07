@@ -58,6 +58,8 @@ export default function InputGrid({
           <input
             type="number"
             placeholder="0.00"
+            min="0.00"
+            step="0.01"
             className="w-full pl-10 border border-gray-300 rounded px-3 py-2 bg-orange-100"
             value={amount}
             onChange={e => setAmount(e.target.value)}

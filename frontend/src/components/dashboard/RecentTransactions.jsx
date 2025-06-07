@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { FiDollarSign, FiMoreHorizontal } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 export const RecentTransactions = ({ transactions = [], loading, error, limit }) => {
-    
     const navigate = useNavigate();
-    const displayedTransactions = limit
-        ? transactions.slice(0, limit)
-        : transactions;
+    const [currentPage, setCurrentPage] = useState(1);
+
+    // If limit is provided (e.g., 5 for dashboard), show only first page, no pagination controls.
+    const itemsPerPage = limit || 20;
+
+    const totalPages = Math.ceil(transactions.length / itemsPerPage);
+
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const displayedTransactions = transactions.slice(startIndex, endIndex);
+
+    const handleNext = () => {
+        if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+    };
+
+    const handleBack = () => {
+        if (currentPage > 1) setCurrentPage(currentPage - 1);
+    };
 
     return (
         <div className="col-span-12 p-4 rounded border border-stone-300">
@@ -51,12 +65,34 @@ export const RecentTransactions = ({ transactions = [], loading, error, limit })
                                 sku={tx.category}
                                 date={tx.date}
                                 price={`$${Number(tx.amount).toFixed(2)}`}
-                                order={idx + 1}
+                                order={startIndex + idx + 1}
                             />
                         ))
                     )}
                 </tbody>
             </table>
+            {/* Show pagination controls only if limit is not set (input page) and there are multiple pages */}
+            {!limit && totalPages > 1 && (
+                <div className="flex justify-between mt-4">
+                    <button
+                        onClick={handleBack}
+                        disabled={currentPage === 1}
+                        className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
+                    >
+                        Back
+                    </button>
+                    <span className="text-sm text-gray-600">
+                        Page {currentPage} of {totalPages}
+                    </span>
+                    <button
+                        onClick={handleNext}
+                        disabled={currentPage === totalPages}
+                        className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
+                    >
+                        Next
+                    </button>
+                </div>
+            )}
         </div>
     );
 };

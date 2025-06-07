@@ -54,11 +54,10 @@ export const TransactionGrid = () => {
             <div className="col-span-full">
                 <SubmitTransaction onSubmit={handleTransactionSubmit} />
             </div>
-            <RecentTransactions
-                transactions={transactions}
-                loading={loading}
-                error={error}
-                // limit={5} // Pass limit if you want to limit results
+            <RecentTransactions 
+            transactions={transactions} 
+            loading={loading} 
+            error={error} 
             />
         </div>
     );
