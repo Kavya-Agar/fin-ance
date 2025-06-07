@@ -2,9 +2,7 @@ import React from "react";
 import { FiDollarSign, FiMoreHorizontal } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
-// Accept transactions, loading, error, and (optionally) limit as props
 export const RecentTransactions = ({ transactions = [], loading, error, limit }) => {
-    // Only show up to `limit` transactions if limit is provided
     
     const navigate = useNavigate();
     const displayedTransactions = limit
