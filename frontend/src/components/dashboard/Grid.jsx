@@ -10,7 +10,7 @@ export const Grid = () => {
             <StatCards />
             <ActivityGraph />
             <UsageRadar />
-            <RecentTransactions />
+            <RecentTransactions limit={5} />
         </div>
     );
 }

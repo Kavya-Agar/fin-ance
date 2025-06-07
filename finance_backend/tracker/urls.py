@@ -1,10 +1,6 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from .views import ExpenseViewSet
-
-router = DefaultRouter()
-router.register(r'expenses', ExpenseViewSet, basename='expense')
+from django.urls import path
+from .views import ExpenseListCreate
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('expenses/', ExpenseListCreate.as_view(), name='api-expenses'),
 ]

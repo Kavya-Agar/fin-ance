@@ -1,16 +1,21 @@
-from django.shortcuts import render
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from rest_framework import status
 from .models import Expense
 from .serializers import ExpenseSerializer
 
-class ExpenseViewSet(ModelViewSet):
-    serializer_class = ExpenseSerializer
-    queryset = Expense.objects.all()
+class ExpenseListCreate(APIView):
     permission_classes = [IsAuthenticated]
 
-    def get_queryset(self):
-        return Expense.objects.filter(user=self.request.user)
-    
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    def get(self, request):
+        expenses = Expense.objects.filter(user=request.user).order_by('-date')
+        serializer = ExpenseSerializer(expenses, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = ExpenseSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
