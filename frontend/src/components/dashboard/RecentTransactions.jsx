@@ -1,35 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { FiDollarSign, FiMoreHorizontal } from "react-icons/fi";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export const RecentTransactions = ({ limit }) => {
-    const [transactions, setTransactions] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (!token) {
-            setError("Not authenticated.");
-            setLoading(false);
-            return;
-        }
-        axios.get('http://localhost:8000/api/expenses/', {
-            headers: {
-                Authorization: `Token ${token}`,
-            },
-        })
-        .then(response => {
-            setTransactions(response.data);
-            setLoading(false);
-        })
-        .catch(err => {
-            setError("Failed to fetch transactions.");
-            setLoading(false);
-        });
-    }, []);
-
+// Accept transactions, loading, error, and (optionally) limit as props
+export const RecentTransactions = ({ transactions = [], loading, error, limit }) => {
     // Only show up to `limit` transactions if limit is provided
+    
+    const navigate = useNavigate();
     const displayedTransactions = limit
         ? transactions.slice(0, limit)
         : transactions;
@@ -40,7 +17,10 @@ export const RecentTransactions = ({ limit }) => {
                 <h3 className="flex items-center gap-1.5 font-medium">
                     <FiDollarSign /> Recent Transactions
                 </h3>
-                <button className="text-sm text-violet-500 hover:underline">
+                <button
+                    className="text-sm text-violet-500 hover:underline"
+                    onClick={() => navigate('/page/fish')}
+                >
                     See all
                 </button>
             </div>

@@ -7,7 +7,7 @@ export const StatCards = () => {
             <Card 
                 title="Total Spendings"
                 value="$1,234,567"
-                pillText="+12%" // implement the change
+                pillText="+12%"
                 trend="up"
                 period="this month"            
             />
