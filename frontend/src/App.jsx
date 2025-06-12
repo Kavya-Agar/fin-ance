@@ -10,6 +10,7 @@ import DashboardFull from './components/dashboard/Dashboard.jsx';
 import Page from './components/Page.jsx';
 import Details from './components/Details.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
+import MLInsights from './components/MLInsights.jsx'
 
 function AppContent() {
   const [darkMode, setDarkMode] = useState(false);
@@ -38,6 +39,7 @@ function AppContent() {
           <Route path="/dashboard/*" element={<ProtectedRoute> <DashboardFull /> </ProtectedRoute>} />
           <Route path="/page/" element={<ProtectedRoute> <Page /> </ProtectedRoute>} />
           <Route path="/page/fish" element={<ProtectedRoute> <Details /> </ProtectedRoute>} />
+          <Route path="/page/insights" element={<ProtectedRoute> <MLInsights /> </ProtectedRoute>} />
         </Routes>
       </div>
     </>

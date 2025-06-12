@@ -18,7 +18,6 @@ export const StatCards = () => {
         });
     }, []);
 
-    // Calculate percent change for illustration
     const percentChange = stats.last_month
         ? ((stats.this_month - stats.last_month) / stats.last_month * 100).toFixed(1)
         : 0;

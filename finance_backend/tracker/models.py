@@ -19,3 +19,10 @@ class Expense(models.Model):
 
     def __str__(self):
         return f"{self.description} - ${self.amount}"
+
+class BudgetPrediction(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.CharField(max_length=100)
+    predicted_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    month = models.DateField()
+    created_at = models.DateTimeField(auto_now_add=True)
