@@ -1,48 +1,79 @@
 # 🐟 Fin-ance
-A fish-themed finance tracker that you can use to track your day-to-day spendings. It provides a simple UI that is easy to use and provides a fun experience while doing something most people dread. 
 
-# 👾 Tech Stack
-* Frontend: React.js, TailwindCSS, Vite, Recharts, React Router
+A playful, fish-themed finance tracker to help you manage your daily spending. Enjoy a simple, intuitive UI that makes tracking expenses less of a chore and more of a fun experience.
 
-* Backend: Django (REST Framework)
+---
 
-* Database: PostgreSQL
+## 👾 Tech Stack
 
-* AI & Data Layer: Tensorflow, Scikit-Learn
+- **Frontend:** React.js, TailwindCSS, Vite, Recharts, React Router
+- **Backend:** Django (REST Framework)
+- **Database:** PostgreSQL
+- **AI & Data Layer:** TensorFlow, Scikit-Learn
 
-# 👨‍💻 Description
-* Developed a full-stack expenses tracking web application using Django, React.js, and PostgreSQL, facilitating day-to-day management of finances
-* Implemented user authentication, enabling secure access for user and keeping data private
-* Developed intuitive user dashboards, transaction management, monthly summaries, statistics, and budget management
-* Utilized machine learning to help estimate monthly budget, forecasted spending trend, smart recommendations on category-specific spendings, and anomaly detection to catch deviation from past behavior
+---
 
-# 🏃‍♂️ How to run?
-### Step 1: Fork and clone the repository
-1. Fork the repository to your Github account
-2. Clone the forked repository to your local machine
+## 👨‍💻 Features
+
+- Full-stack expense tracking web app built with Django, React.js, and PostgreSQL
+- Secure user authentication to keep your data private
+- Intuitive dashboards for transactions, monthly summaries, statistics, and budget management
+- Machine learning-powered features:
+    - Monthly budget estimation
+    - Spending trend forecasting
+    - Smart recommendations for category-specific spending
+    - Anomaly detection for unusual activity
+
+---
+
+## 🏃‍♂️ Getting Started
+
+### 1. Fork and Clone the Repository
+
+1. Fork this repo to your GitHub account.
+2. Clone your fork to your local machine:
+
+     ```sh
+     git clone https://github.com/<your-username>/fin-ance
+     ```
+
+### 2. Run the Backend
+
+Navigate to the `finance_backend` directory and start the Django server:
 
 ```sh
-git clone https://github.com/<your-username>/fin-ance
-```
-
-### Step 2: Run the backend
-* Navigate to finance_backend and run in the terminal
-
-```
 python manage.py runserver
 ```
 
-### Step 3: Run the frontend
-* Navigate to frontend and run in the terminal to download dependencies
+### 3. Run the Frontend
 
-```
+Navigate to the `frontend` directory, install dependencies, and start the development server:
+
+```sh
 npm install
-```
-
-To get started: 
-```
 npm start
 ```
-To get started with the tracker make an account and then sign in on the login page!
+
+---
+
+Create an account and sign in on the login page to start tracking your finances!
+
+---
 
 ## 📸 Screenshots
+
+| ![Landing Page](frontend/src/assets/Landing%20Page.png) | ![Dark Mode](frontend/src/assets/Dark%20Mode.png) |
+|:-------------------------------------------------------:|:-------------------------------------------------:|
+| Landing Page                                            | Dark Mode                                         |
+
+| ![Sign Up Page](frontend/src/assets/Sign%20Up%20Page.png) | ![Log In Page](frontend/src/assets/Log%20In%20Page.png) |
+|:---------------------------------------------------------:|:-------------------------------------------------------:|
+| Sign Up Page                                              | Log In Page                                             |
+
+| ![Main Dashboard](frontend/src/assets/Main%20Dashboard.png) | ![Input Page](frontend/src/assets/Input%20Page.png) |
+|:-----------------------------------------------------------:|:---------------------------------------------------:|
+| Dashboard                                                  | Input Page                                          |
+
+| ![Insights](frontend/src/assets/ML%20Page.png) |
+|:----------------------------------------------:|
+| Insights                                      |
