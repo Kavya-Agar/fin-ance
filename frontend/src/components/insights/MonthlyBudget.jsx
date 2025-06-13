@@ -56,8 +56,10 @@ export const MonthlyBudget = () => {
     }, []);
 
     return (
-        <div className="p-4 rounded border border-stone-300 text-center max-w-sm ml-4">
-            <h2 className="text-lg font-semibold mb-2">Predicted Spendings for next month</h2>
+        <div className="p-4 rounded border border-stone-300 text-center h-full">
+            <h2 className="text-lg font-semibold mb-2">
+                Predicted Spendings for Next Month
+            </h2>
             {loading ? (
                 <div className="text-stone-400">Loading...</div>
             ) : error ? (

@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import ExpenseListCreate, ExpenseStatsView, ExpenseMonthlyChartView, MonthlyCategoryDistributionView
-from .ml_views import PredictedBudgetView, PredictedBudgetRefreshView
+from .ml_views import PredictedBudgetView, PredictedBudgetRefreshView, CategoryForecastView
 
 urlpatterns = [
     path('expenses/', ExpenseListCreate.as_view(), name='api-expenses'),
@@ -9,4 +9,5 @@ urlpatterns = [
     path('expenses/category_distribution/', MonthlyCategoryDistributionView.as_view(), name='category-distribution'),
     path('predicted-budget/', PredictedBudgetView.as_view(), name='predicted-budget'),
     path('predicted-budget/refresh/', PredictedBudgetRefreshView.as_view(), name='predicted-budget-refresh'),
+    path('category-forecast/', CategoryForecastView.as_view(), name='category-forecast'),
 ]

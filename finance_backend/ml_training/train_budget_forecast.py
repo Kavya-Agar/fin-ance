@@ -9,20 +9,27 @@ from sqlalchemy import create_engine
 from datetime import datetime
 import warnings
 
+
+BUDGET_MODEL_PATH = '/Users/kavyaagar/finance/finance_backend/ml_training/ml_models/tf_budget_forecast.keras'
+CATEGORY_MODEL_PATH = '/Users/kavyaagar/finance/finance_backend/ml_training/ml_models/tf_category_forecast.keras'
+
 # CONFIGURATION
 DB_NAME = "finance_db"
 DB_USER = "kavya"
 DB_PASSWORD = "yourpassword"
 DB_HOST = "localhost"
 DB_PORT = "5432"
-MODEL_PATH = "ml_models/tf_budget_forecast.keras"
-N_STEPS = 5  # Number of months in LSTM input sequence
+MODEL_PATH = BUDGET_MODEL_PATH
+N_STEPS = 6  # Number of months in LSTM input sequence
 
 # Build SQLAlchemy engine
 db_url = f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 engine = create_engine(db_url)
 
 def load_expense_data(user_id, category):
+    print("Current working directory:", os.getcwd())
+    print("Model path:", MODEL_PATH)
+    print("File exists:", os.path.exists(MODEL_PATH))
     """Load and aggregate monthly spendings for a user and category (case-insensitive)."""
     query = f"""
         SELECT date, amount FROM tracker_expense
@@ -49,13 +56,13 @@ def create_sequences(data, n_steps=N_STEPS):
 def build_model(input_shape):
     """Build and compile the LSTM model."""
     model = Sequential([
-        LSTM(50, activation='relu', input_shape=input_shape),
-        Dense(1)
+        LSTM(50, activation='relu', input_shape=(N_STEPS, 1)),
+        Dense(1, activation='relu')
     ])
     model.compile(optimizer='adam', loss='mse')
     return model
 
-def train_and_save_model(user_id, category, epochs=100):
+def train_and_save_model(user_id, category, epochs=500):
     """Train the model for a specific user and category and save it."""
     monthly = load_expense_data(user_id, category)
     if monthly is None or len(monthly) <= N_STEPS:
@@ -71,6 +78,10 @@ def train_and_save_model(user_id, category, epochs=100):
 
     model = build_model((X.shape[1], X.shape[2]))
     model.fit(X, y, epochs=epochs, verbose=0)
+
+    print(model.input_shape)  # Should be (None, 6, 1) if N_STEPS=6
+    print(X.shape)
+    print(model.summary())
 
     # Save the model in Keras 3+ compatible format
     os.makedirs(os.path.dirname(MODEL_PATH), exist_ok=True)
@@ -99,7 +110,7 @@ def train_and_save_model(user_id, category, epochs=100):
 # Example usage
 if __name__ == '__main__':
     USER_ID = 4
-    CATEGORY = "Other"  # Try "food", "FOOD", etc. (case-insensitive)
+    CATEGORY = "Travel" 
     result = train_and_save_model(USER_ID, CATEGORY)
     if result:
         print("Forecast:", result)
