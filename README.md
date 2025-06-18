@@ -77,3 +77,15 @@ Create an account and sign in on the login page to start tracking your finances!
 | ![Insights](frontend/src/assets/ML%20Page.png) |
 |:----------------------------------------------:|
 | Insights                                      |
+
+| ![Login Page App](frontend/src/assets/Simulator%20Screenshot%20-%20iPhone%2016%20Pro%20-%202025-06-18%20at%2002.06.01.png) |
+|:----------------------------------------------:|
+| Login App Page                                 |
+
+| ![App and Widget](frontend/src/assets/Simulator%20Screenshot%20-%20iPhone%2016%20Pro%20-%202025-06-18%20at%2002.06.05.png) |
+|:----------------------------------------------:|
+| App and Widget                                  |
+
+| ![App Input Page](frontend/src/assets/Simulator%20Screenshot%20-%20iPhone%2016%20Pro%20-%202025-06-18%20at%2002.06.15.png) |
+|:----------------------------------------------:|
+| App Input Page                                  |
