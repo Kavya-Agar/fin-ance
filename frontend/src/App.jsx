@@ -11,6 +11,7 @@ import Page from './components/Page.jsx';
 import Details from './components/Details.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import MLInsights from './components/MLInsights.jsx'
+import { About } from './components/About.jsx';
 
 function AppContent() {
   const [darkMode, setDarkMode] = useState(false);
@@ -32,7 +33,7 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home darkMode={darkMode} />} />
           <Route path="/learn" element={<h1>Learn Page</h1>} />
-          <Route path="/about" element={<h1>About Page</h1>} />
+          <Route path="/about" element={<About />} />
           <Route path="/signup" element={<Signup darkMode={darkMode} />} />
           <Route path="/login" element={<Login darkMode={darkMode} />} />
           <Route path="/forgot" element={<Forgot darkMode={darkMode} />} />
