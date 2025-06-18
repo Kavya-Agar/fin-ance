@@ -62,30 +62,57 @@ Create an account and sign in on the login page to start tracking your finances!
 
 ## 📸 Screenshots
 
-| ![Landing Page](frontend/src/assets/Landing%20Page.png) | ![Dark Mode](frontend/src/assets/Dark%20Mode.png) |
-|:-------------------------------------------------------:|:-------------------------------------------------:|
-| Landing Page                                            | Dark Mode                                         |
+<div align="center">
 
-| ![Sign Up Page](frontend/src/assets/Sign%20Up%20Page.png) | ![Log In Page](frontend/src/assets/Log%20In%20Page.png) |
-|:---------------------------------------------------------:|:-------------------------------------------------------:|
-| Sign Up Page                                              | Log In Page                                             |
+<table>
+  <tr>
+    <td><img src="frontend/src/assets/Landing%20Page.png" alt="Landing Page" width="250"/></td>
+    <td><img src="frontend/src/assets/Dark%20Mode.png" alt="Dark Mode" width="250"/></td>
+  </tr>
+  <tr>
+    <td align="center">Landing Page</td>
+    <td align="center">Dark Mode</td>
+  </tr>
+  <tr>
+    <td><img src="frontend/src/assets/Sign%20Up%20Page.png" alt="Sign Up Page" width="250"/></td>
+    <td><img src="frontend/src/assets/Log%20In%20Page.png" alt="Log In Page" width="250"/></td>
+  </tr>
+  <tr>
+    <td align="center">Sign Up Page</td>
+    <td align="center">Log In Page</td>
+  </tr>
+  <tr>
+    <td><img src="frontend/src/assets/Main%20Dashboard.png" alt="Dashboard" width="250"/></td>
+    <td><img src="frontend/src/assets/Input%20Page.png" alt="Input Page" width="250"/></td>
+  </tr>
+  <tr>
+    <td align="center">Dashboard</td>
+    <td align="center">Input Page</td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="frontend/src/assets/ML%20Page.png" alt="Insights" width="250"/></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">Insights</td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="frontend/src/assets/Simulator%20Screenshot%20-%20iPhone%2016%20Pro%20-%202025-06-18%20at%2002.06.01.png" alt="Login App Page" width="250"/></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">Login App Page</td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="frontend/src/assets/Simulator%20Screenshot%20-%20iPhone%2016%20Pro%20-%202025-06-18%20at%2002.06.05.png" alt="App and Widget" width="250"/></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">App and Widget</td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="frontend/src/assets/Simulator%20Screenshot%20-%20iPhone%2016%20Pro%20-%202025-06-18%20at%2002.06.15.png" alt="App Input Page" width="250"/></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">App Input Page</td>
+  </tr>
+</table>
 
-| ![Main Dashboard](frontend/src/assets/Main%20Dashboard.png) | ![Input Page](frontend/src/assets/Input%20Page.png) |
-|:-----------------------------------------------------------:|:---------------------------------------------------:|
-| Dashboard                                                  | Input Page                                          |
-
-| ![Insights](frontend/src/assets/ML%20Page.png) |
-|:----------------------------------------------:|
-| Insights                                      |
-
-| ![Login Page App](frontend/src/assets/Simulator%20Screenshot%20-%20iPhone%2016%20Pro%20-%202025-06-18%20at%2002.06.01.png) |
-|:----------------------------------------------:|
-| Login App Page                                 |
-
-| ![App and Widget](frontend/src/assets/Simulator%20Screenshot%20-%20iPhone%2016%20Pro%20-%202025-06-18%20at%2002.06.05.png) |
-|:----------------------------------------------:|
-| App and Widget                                  |
-
-| ![App Input Page](frontend/src/assets/Simulator%20Screenshot%20-%20iPhone%2016%20Pro%20-%202025-06-18%20at%2002.06.15.png) |
-|:----------------------------------------------:|
-| App Input Page                                  |
+</div>
