@@ -9,6 +9,7 @@ from datetime import timedelta
 from django.db import models
 from django.db.models import Sum
 import calendar
+from rest_framework.permissions import AllowAny
 
 class ExpenseListCreate(APIView):
     permission_classes = [IsAuthenticated]
@@ -20,28 +21,40 @@ class ExpenseListCreate(APIView):
 
     def post(self, request):
         serializer = ExpenseSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save(user=request.user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        if not serializer.is_valid():
+            print(serializer.errors)
+            return Response(serializer.errors, status=400)
+        serializer.save(user=request.user)
+        return Response(serializer.data, status=201)
+
+from rest_framework.permissions import AllowAny
 
 class ExpenseStatsView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def get(self, request):
+        if not request.user.is_authenticated:
+            # Return demo or public data, or zeros
+            total = Expense.objects.aggregate(total=models.Sum('amount'))['total'] or 0
+            this_month = Expense.objects.filter(
+                date__gte=timezone.now().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+            ).aggregate(total=models.Sum('amount'))['total'] or 0
+            last_month = 0  # Or calculate for all users if you want
+            return Response({
+                "total": total,
+                "this_month": this_month,
+                "last_month": last_month,
+            })
+
+        # Existing logic for authenticated users
         user = request.user
         now = timezone.now()
-        # This month
         start_of_month = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
-        # Last month
         first_of_this_month = start_of_month
         start_of_last_month = (first_of_this_month - timedelta(days=1)).replace(day=1)
         end_of_last_month = first_of_this_month - timedelta(seconds=1)
-        # All time (so far)
-        total = Expense.objects.filter(user=user).aggregate_sum = Expense.objects.filter(user=user).aggregate(total=models.Sum('amount'))['total'] or 0
-        # This month
+        total = Expense.objects.filter(user=user).aggregate(total=models.Sum('amount'))['total'] or 0
         this_month = Expense.objects.filter(user=user, date__gte=start_of_month).aggregate(total=models.Sum('amount'))['total'] or 0
-        # Last month
         last_month = Expense.objects.filter(
             user=user, date__gte=start_of_last_month, date__lte=end_of_last_month
         ).aggregate(total=models.Sum('amount'))['total'] or 0
@@ -51,6 +64,7 @@ class ExpenseStatsView(APIView):
             "this_month": this_month,
             "last_month": last_month,
         })
+
 
 class ExpenseMonthlyChartView(APIView):
     permission_classes = [IsAuthenticated]

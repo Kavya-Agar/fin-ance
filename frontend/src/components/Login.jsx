@@ -76,7 +76,7 @@ export default function Login({ darkMode }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: email, password }), // <--- key line
+      body: JSON.stringify({ username: email, password }),
     });
 
     const data = await response.json();
