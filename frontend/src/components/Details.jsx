@@ -1,6 +1,6 @@
 import React from "react";
 import FullInput from './input/TransactionDashboard.jsx';
-import Sidebar from "./sidebar/sidebar.jsx";
+import Sidebar from "./sidebar/Sidebar.jsx";
 
 export default function Details() {
     return (

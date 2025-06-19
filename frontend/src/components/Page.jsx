@@ -1,6 +1,6 @@
 import React from "react";
 import DashboardFull from "./dashboard/Dashboard.jsx";
-import Sidebar from "./sidebar/sidebar.jsx";
+import Sidebar from "./sidebar/Sidebar.jsx";
 
 export default function Page() {
     return (

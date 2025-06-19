@@ -1,6 +1,6 @@
 import React from "react";
 import Insights from "./insights/Insights.jsx";
-import Sidebar from "./sidebar/sidebar.jsx";
+import Sidebar from "./sidebar/Sidebar.jsx";
 
 export default function MLInsights() {
     return (

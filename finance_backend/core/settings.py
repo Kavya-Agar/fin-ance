@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.4.83']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.4.83', '0.0.0.0']
 
 
 # Application definition
@@ -97,9 +97,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'finance_db',
-        'USER': 'kavya',
-        'PASSWORD': 'yourpassword',
-        'HOST': 'localhost',
+        'USER': 'finance_user',
+        'PASSWORD': 'supersecurepassword',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
