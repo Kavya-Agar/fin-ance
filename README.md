@@ -10,6 +10,7 @@ A playful, fish-themed finance tracker to help you manage your daily spending. E
 - **Backend:** Django (REST Framework)
 - **Database:** PostgreSQL
 - **AI & Data Layer:** TensorFlow, Scikit-Learn
+- **Deployment:** Docker Compose
 
 ---
 
